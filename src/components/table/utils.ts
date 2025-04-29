@@ -1,5 +1,3 @@
-
-
 import { useCallback, useState } from 'react';
 import { useDialogs } from '@toolpad/core/useDialogs';
 import { useNavigate } from 'react-router-dom';
@@ -75,8 +73,10 @@ export function applyFilter({ inputData, comparator, filterName }: ApplyFilterPr
   inputData = stabilizedThis.map((el) => el[0]) as TODO;
 
   if (filterName) {
+    const value = someVariable; // Replace with the actual variable
+    const safeValue = value ? value.toLowerCase() : ''; // Add a fallback for undefined or null
     inputData = inputData.filter(
-      (user:TODO) => user.name.toLowerCase().indexOf(filterName.toLowerCase()) !== -1
+      (user: TODO) => user.name.toLowerCase().indexOf(safeValue) !== -1
     ) as TODO;
   }
 
@@ -148,18 +148,18 @@ export function useTable(props?: useTableProps) {
   );
 
   // const onDialogConfirm = useCallback(
-  const onDialogConfirm = async (message="") => {
-      let deleteConfirmed =false
-      await dialogs.confirm(
-        message? message:
-         "Are you sure to continue this DELETE operation?",
-      ).then( (result :TODO) => {
-        console.log(result)
-        deleteConfirmed = result;
-      }).catch(e => console.log(e));
-      return deleteConfirmed;
+  const onDialogConfirm = async (message = "") => {
+    let deleteConfirmed = false
+    await dialogs.confirm(
+      message ? message :
+        "Are you sure to continue this DELETE operation?",
+    ).then((result: TODO) => {
+      console.log(result)
+      deleteConfirmed = result;
+    }).catch(e => console.log(e));
+    return deleteConfirmed;
 
-    }
+  }
   //   []
   // );
 
