@@ -78,7 +78,7 @@ export function AccountPopover({ data = [], sx, ...other }: AccountPopoverProps)
       </IconButton>
 
       <IconButton
-        onClick={() => handleNewTab('https://github.com/harryho/react-demo')}
+        onClick={() => handleNewTab('https://github.com/yashwanth-20')}
         sx={{
           p: '1px',
           width: 40,
